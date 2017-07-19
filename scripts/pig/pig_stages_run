@@ -1,0 +1,5 @@
+#Stage 1:
+pig -param_file /home/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/scripts/pig/stages.param /home/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/src/pig/max-day-station-date.pig
+
+#Stage 2:
+pig -param_file /home/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/scripts/pig/stages.param /home/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/src/pig/max-day-station-day-month.pig
