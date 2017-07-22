@@ -1,0 +1,42 @@
+<workflow-app xmlns="uri:oozie:workflow:0.4" name="mean-max-temp-workflow-pig">
+  <start to="pig-s1"/>
+<action name="pig-s1">
+    <pig>
+      <job-tracker>${resourceManager}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <prepare>
+        <delete path="${out_s1}"/>
+      </prepare>
+      <script>/max-day-station-date.pig</script>
+      <argument>-param</argument>
+      <argument>load_loc=${load_loc_dir}</argument>
+      <argument>-param</argument>
+      <argument>in_s1=${in_s1_dir}</argument>
+      <argument>-param</argument>
+      <argument>out_s1=${out_s1_dir}</argument>
+    </pig>
+    <ok to="pig-s2"/>
+    <error to="fail"/>
+</action>
+<action name="pig-s2">
+    <pig>
+      <job-tracker>${resourceManager}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <prepare>
+        <delete path="${out_s2}"/>
+      </prepare>
+      <script>/max-day-station-day-month.pig</script>
+      <argument>-param</argument>
+      <argument>in_s2=${in_s2_dir}</argument>
+      <argument>-param</argument>
+      <argument>out_s2=${out_s2_dir}</argument>
+    </pig>
+    <ok to="end"/>
+    <error to="fail"/>
+  </action>
+  <kill name="fail">
+    <message>Pig failed, error message[${wf:errorMessage(wf:lastErrorNode())}]
+    </message>
+  </kill>
+  <end name="end"/>
+</workflow-app>

@@ -1,0 +1,17 @@
+#Remove oozie app.
+hadoop fs -rm -r max-temp-workflow
+
+#Copy oozie app.
+hadoop fs -put /home/cloudera/Repositories/Git/Oozie-Pig-HCatalog-Demos/src/oozie/mapreduce/max-temp-workflow/ max-temp-workflow
+
+#Oozie server
+export OOZIE_URL="http://localhost:11000/oozie"
+
+#Run job
+oozie job -config /home/cloudera/Repositories/Git/Oozie-Pig-HCatalog-Demos/src/oozie/mapreduce/max-temp-workflow/max-temp-workflow.properties -run
+
+#Monitoring
+http://localhost:11000/oozie 
+
+#Results
+hadoop fs -get output /home/cloudera/Repositories/Git/Oozie-Pig-HCatalog-Demos/output/test_oozie_mr

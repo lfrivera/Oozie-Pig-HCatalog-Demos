@@ -1,0 +1,7 @@
+# Load function location.
+load_loc=/home/cloudera/Repositories/Git/Oozie-Pig-HCatalog-Demos/assets/pig-examples.jar
+# Input.
+in_s1=ncdc-data
+# Output.
+out_max=out_pig
+
