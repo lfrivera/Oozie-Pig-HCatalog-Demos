@@ -1,0 +1,2 @@
+hive -e "add jar /usr/lib/hive/lib/hive-contrib-1.1.0-cdh5.10.1.jar; SELECT observation_date_year, MAX(air_temperature) FROM weather_managed WHERE air_temperature != 9999 AND at_quality_code IN (0,1,4,5,9) GROUP BY observation_date_year;" > out_max_hive_300GB.txt
+
