@@ -1,7 +1,7 @@
 # Load function location.
-load_loc=/home/cloudera/Repositories/Git/Oozie-Pig-HCatalog-Demos/assets/pig-examples.jar
+load_loc=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/pig-examples.jar
 # Input.
-in_s1=ncdc-data
+in_s1=/user/hive/warehouse/weather_external/full_data.txt
 # Output.
-out_max=out_pig
+out_max=out_max_pig
 

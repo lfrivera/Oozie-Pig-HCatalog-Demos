@@ -1,0 +1,2 @@
+su -
+scp -r /home/sas1/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos root@grid102:/home/sas6/

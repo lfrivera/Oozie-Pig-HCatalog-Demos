@@ -1,0 +1,5 @@
+service cloudera-scm-agent stop
+service cloudera-scm-agent start
+service firewalld stop
+date -s "22 JUL 2017 10:44:00"
+

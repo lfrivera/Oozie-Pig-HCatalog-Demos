@@ -1,1 +1,1 @@
-pig -param_file /home/cloudera/Repositories/Git/Oozie-Pig-HCatalog-Demos/scripts/pig/max.param /home/cloudera/Repositories/Git/Oozie-Pig-HCatalog-Demos/src/pig/max-day-station-date.pig
+pig -param_file /home/sas6/Oozie-Pig-HCatalog-Demos/scripts/pig/max.param /home/sas6/Oozie-Pig-HCatalog-Demos/src/pig/max-temp.pig
