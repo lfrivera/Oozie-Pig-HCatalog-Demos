@@ -1,1 +1,0 @@
-pig -param_file /home/sas6/Oozie-Pig-HCatalog-Demos/scripts/pig/max.param /home/sas6/Oozie-Pig-HCatalog-Demos/src/pig/max-temp.pig

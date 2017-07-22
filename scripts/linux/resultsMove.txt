@@ -1,0 +1,5 @@
+hadoop fs -get out_mr_30GB /home/sas6/Oozie-Pig-HCatalog-Demos/
+
+scp -r root@grid102:/home/sas6/Oozie-Pig-HCatalog-Demos/out_mr_30GB /home/sas1/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos
+
+mv out_mr_30GB/ /home/sas1/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/ouput/cluster/mr/max-temp/30GB

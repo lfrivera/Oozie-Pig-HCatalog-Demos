@@ -1,0 +1,3 @@
+export HADOOP_CLASSPATH=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/hadoop-examples.jar
+
+hadoop MaxTemperature /user/hive/warehouse/weather_external/full_data.txt out_mr_300GB

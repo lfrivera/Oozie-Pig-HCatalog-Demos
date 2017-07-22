@@ -1,0 +1,7 @@
+# Load function location.
+load_loc=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/pig-examples.jar
+# Input.
+in_s1=/user/sas6/temperature/g5.txt
+# Output.
+out_max=out_max_pig_30GB
+
