@@ -1,0 +1,100 @@
+2017-07-24 21:03:37,857 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 25% complete
+2017-07-24 21:03:53,422 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 29% complete
+2017-07-24 21:04:05,769 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 33% complete
+2017-07-24 21:04:23,439 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 37% complete
+2017-07-24 21:04:37,379 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 41% complete
+2017-07-24 21:04:52,366 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 45% complete
+2017-07-24 21:05:05,214 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 49% complete
+2017-07-24 21:05:07,353 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 64% complete
+2017-07-24 21:05:07,886 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 87% complete
+2017-07-24 21:05:11,889 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - 100% complete
+2017-07-24 21:05:11,891 [main] INFO  org.apache.pig.tools.pigstats.SimplePigStats - Script Statistics: 
+
+HadoopVersion	PigVersion	UserId	StartedAt	FinishedAt	Features
+2.6.0-cdh5.10.1	0.12.0-cdh5.10.1	root	2017-07-24 21:01:27	2017-07-24 21:05:11	GROUP_BY,FILTER
+
+Success!
+
+Job Stats (time in seconds):
+JobId	Maps	Reduces	MaxMapTime	MinMapTIme	AvgMapTime	MedianMapTime	MaxReduceTime	MinReduceTime	AvgReduceTime	MedianReducetime	Alias	Feature	Outputs
+job_1500940352853_0007	175	24	76	34	64	67	11	10	10	10	avg_temp,filtered_records,grouped_records,records	GROUP_BY,COMBINER	hdfs://grid101.icesi.edu.co:8020/tmp/temp1905107653/tmp-956363833,
+
+Input(s):
+Successfully read 1301870008 records (23085749212 bytes) from: "weather_managed_pb"
+
+Output(s):
+Successfully stored 52 records (832 bytes) in: "hdfs://grid101.icesi.edu.co:8020/tmp/temp1905107653/tmp-956363833"
+
+Counters:
+Total records written : 52
+Total bytes written : 832
+Spillable Memory Manager spill count : 0
+Total bags proactively spilled: 399
+Total records proactively spilled: 282125515
+
+Job DAG:
+job_1500940352853_0007
+
+
+2017-07-24 21:05:12,258 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - Success!
+2017-07-24 21:05:12,261 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - fs.default.name is deprecated. Instead, use fs.defaultFS
+2017-07-24 21:05:12,262 [main] INFO  org.apache.pig.data.SchemaTupleBackend - Key [pig.schematuple] was not set... will not generate code.
+2017-07-24 21:05:12,277 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input paths to process : 24
+2017-07-24 21:05:12,277 [main] INFO  org.apache.pig.backend.hadoop.executionengine.util.MapRedUtil - Total input paths to process : 24
+(1968,121.16010107777505)
+(1992,116.77505666817854)
+(1969,78.73905998031462)
+(1993,113.4264227906392)
+(1970,79.30753933490365)
+(1994,119.90223314266426)
+(1971,78.23231306344148)
+(1995,119.85720633669305)
+(1972,132.26627559340804)
+(1996,117.18064088411325)
+(1973,113.17313370816947)
+(1997,125.73843813350167)
+(1950,114.95775694426654)
+(1974,108.64593054768685)
+(1998,131.29597426608174)
+(1951,119.21154786433272)
+(1975,111.88946659801925)
+(1999,127.26411579931941)
+(1952,121.48667577465866)
+(1976,107.27979127681823)
+(2000,123.64135096353958)
+(1953,125.0748480810852)
+(1977,112.94537682378203)
+(2001,123.05474038391787)
+(1954,124.22340549042053)
+(1978,110.84356351069354)
+(1955,118.65883669971534)
+(1979,111.9480702439679)
+(1956,112.4162374176952)
+(1980,109.76586241176219)
+(1957,119.917945279445)
+(1981,115.43023823052408)
+(1958,117.67608382568841)
+(1982,114.43804726560698)
+(1959,114.13731049930217)
+(1983,116.55517904219201)
+(1960,116.43938762343751)
+(1984,112.0393308496252)
+(1961,118.7055936181197)
+(1985,107.98963246814128)
+(1962,115.68730113248174)
+(1986,110.90698573422542)
+(1963,115.85376331209818)
+(1987,111.30051578679992)
+(1964,118.23381254820556)
+(1988,113.34790348060311)
+(1965,120.25853070108889)
+(1989,115.50070596533851)
+(1966,118.4777955255669)
+(1990,119.5125066826791)
+(1967,124.35775313779489)
+(1991,116.99081458278444)
+2017-07-24 21:05:12,450 [main] INFO  hive.metastore - Trying to connect to metastore with URI thrift://grid102.icesi.edu.co:9083
+2017-07-24 21:05:12,451 [main] INFO  hive.metastore - Opened a connection to metastore, current connections: 1
+2017-07-24 21:05:12,453 [main] INFO  hive.metastore - Connected to metastore.
+2017-07-24 21:05:12,554 [Thread-6] INFO  hive.metastore - Closed a connection to metastore, current connections: 0
+
