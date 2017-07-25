@@ -4,4 +4,4 @@ filtered_records = FILTER records BY temperature != 9999 AND com.hadoopbook.pig.
 formated_records = FOREACH filtered_records GENERATE  CONCAT(usaf_id,'-',wban_id), date, temperature;
 grouped_records = GROUP formated_records BY ($0,$1);
 max_day_station_date = FOREACH grouped_records GENERATE FLATTEN(group),MAX(formated_records.temperature);
-STORE  max_day_station_date INTO '$out_s1';
+DUMP max_day_station_date;

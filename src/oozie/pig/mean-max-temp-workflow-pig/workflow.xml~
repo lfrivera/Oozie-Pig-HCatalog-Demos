@@ -7,7 +7,7 @@
       <prepare>
         <delete path="${outS1Dir}"/>
       </prepare>
-      <script>s1.pig</script>
+      <script>/s1.pig</script>
       <argument>-param</argument>
       <argument>loadLoc=${loadLocDir}</argument>
       <argument>-param</argument>
@@ -25,7 +25,7 @@
       <prepare>
         <delete path="${outS2Dir}"/>
       </prepare>
-      <script>s2.pig</script>
+      <script>/s2.pig</script>
       <argument>-param</argument>
       <argument>inS2=${inS2Dir}</argument>
       <argument>-param</argument>
