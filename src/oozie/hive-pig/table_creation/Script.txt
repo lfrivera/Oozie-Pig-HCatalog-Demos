@@ -1,0 +1,9 @@
+add jar /usr/lib/hive/lib/hive-contrib-1.1.0-cdh5.10.1.jar;
+
+CREATE TABLE weather_managed_lf 
+AS SELECT 
+        CAST(CONCAT(usaf,'-',wban) AS STRING),
+        CAST(CONCAT(observation_date_year,observation_date_month,observation_date_day) AS INT),
+        CAST(air_temperature AS INT), 
+        CAST(at_quality_code AS INT)
+    FROM weather_external;
