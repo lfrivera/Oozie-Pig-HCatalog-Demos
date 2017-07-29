@@ -1,0 +1,3 @@
+hadoop fs -rm -r out_scalabity_pig
+
+pig -param_file /home/sas6/Oozie-Pig-HCatalog-Demos/scripts/pig/300GB/avg_count_scalabity.param /home/sas6/Oozie-Pig-HCatalog-Demos/src/pig/avg-std-temp-scalability.pig

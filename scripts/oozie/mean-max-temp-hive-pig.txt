@@ -15,6 +15,6 @@ http://grid102.icesi.edu.co:11000/oozie
 
 #Results
 hadoop fs -get hive-pig-s2-out /home/sas6/Oozie-Pig-HCatalog-Demos/oozie_hive_pig_two_stages
-scp -r root@grid102:/home/sas6/Oozie-Pig-HCatalog-Demos/oozie_hive_pig_two_stages /home/sas1/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/ouput/cluster/oozie
+scp -r root@grid102:/home/sas6/Oozie-Pig-HCatalog-Demos/oozie_hive_pig_two_stages /home/sas1/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/ouput/cluster/oozie/mean-max/hive-pig
 
 
