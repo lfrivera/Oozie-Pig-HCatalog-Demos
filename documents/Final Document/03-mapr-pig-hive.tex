@@ -1,5 +1,17 @@
 \subsection{Running MapReduce}
 
+%\begin{Verbatim}[commandchars=\\\{\}]
+
+%\textcolor{red}{export} HADOOP_CLASSPATH=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/hadoop-examples.jar
+
+%\textcolor{red}{hadoop} MaxTemperature /user/hive/warehouse/weather_external/full_data.txt out_mr_300GB
+%\end{Verbatim}
+
+\begin{lstlisting}[linewidth=\columnwidth,breaklines=true]
+export HADOOP_CLASSPATH=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/hadoop-examples.jar
+
+hadoop MaxTemperature /user/hive/warehouse/weather_external/full_data.txt out_mr_300GB
+\end{lstlisting}
 
 \subsection{Running Pig}
 
