@@ -1,35 +1,35 @@
-<workflow-app xmlns="uri:oozie:workflow:0.4" name="mean-max-temp-workflow-pig">
-  <start to="pig-s1"/>
-<action name="pig-s1">
+<workflow-app xmlns="uri:oozie:workflow:0.4" name="meanMax">
+  <start to="pigS1"/>
+<action name="pigS1">
     <pig>
       <job-tracker>${resourceManager}</job-tracker>
       <name-node>${nameNode}</name-node>
       <prepare>
-        <delete path="${out_s1}"/>
+        <delete path="${outS1Dir}"/>
       </prepare>
-      <script>/max-day-station-date.pig</script>
+      <script>s1.pig</script>
       <argument>-param</argument>
-      <argument>load_loc=${load_loc_dir}</argument>
+      <argument>loadLoc=${loadLocDir}</argument>
       <argument>-param</argument>
-      <argument>in_s1=${in_s1_dir}</argument>
+      <argument>inS1=${inS1Dir}</argument>
       <argument>-param</argument>
-      <argument>out_s1=${out_s1_dir}</argument>
+      <argument>outS1=${outS1Dir}</argument>
     </pig>
-    <ok to="pig-s2"/>
+    <ok to="pigS2"/>
     <error to="fail"/>
 </action>
-<action name="pig-s2">
+<action name="pigS2">
     <pig>
       <job-tracker>${resourceManager}</job-tracker>
       <name-node>${nameNode}</name-node>
       <prepare>
-        <delete path="${out_s2}"/>
+        <delete path="${outS2Dir}"/>
       </prepare>
-      <script>/max-day-station-day-month.pig</script>
+      <script>s2.pig</script>
       <argument>-param</argument>
-      <argument>in_s2=${in_s2_dir}</argument>
+      <argument>inS2=${inS2Dir}</argument>
       <argument>-param</argument>
-      <argument>out_s2=${out_s2_dir}</argument>
+      <argument>outS2=${outS2Dir}</argument>
     </pig>
     <ok to="end"/>
     <error to="fail"/>

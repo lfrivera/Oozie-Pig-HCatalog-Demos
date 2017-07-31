@@ -1,0 +1,20 @@
+#Remove oozie app.
+hadoop fs -rm -r mean-max-temp-workflow-hive-pig
+
+#Copy oozie app.
+hadoop fs -put /home/sas6/Oozie-Pig-HCatalog-Demos/src/oozie/hive-pig/mean-max-temp-workflow-hive-pig mean-max-temp-workflow-hive-pig
+
+#Oozie server
+export OOZIE_URL="http://grid102.icesi.edu.co:11000/oozie"
+
+#Run job
+oozie job -config /home/sas6/Oozie-Pig-HCatalog-Demos/src/oozie/hive-pig/mean-max-temp-workflow-hive-pig/workflow.properties -run
+
+#Monitoring
+http://grid102.icesi.edu.co:11000/oozie
+
+#Results
+hadoop fs -get hive-pig-s2-out /home/sas6/Oozie-Pig-HCatalog-Demos/oozie_hive_pig_two_stages
+scp -r root@grid102:/home/sas6/Oozie-Pig-HCatalog-Demos/oozie_hive_pig_two_stages /home/sas1/lfrivera/Repositories/Git/Oozie-Pig-HCatalog-Demos/ouput/cluster/oozie/mean-max/hive-pig
+
+

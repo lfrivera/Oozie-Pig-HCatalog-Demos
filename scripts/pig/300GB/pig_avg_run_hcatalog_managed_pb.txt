@@ -1,0 +1,1 @@
+pig -param_file /home/sas6/Oozie-Pig-HCatalog-Demos/scripts/pig/300GB/avg_hcatalog_managed_pb.param /home/sas6/Oozie-Pig-HCatalog-Demos/src/pig/avg-50recent-temp-hcatalog.pig

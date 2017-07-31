@@ -1,0 +1,44 @@
+<workflow-app xmlns="uri:oozie:workflow:0.4" name="meanMax">
+  <start to="hiveS1"/>
+<action name="hiveS1">
+    <hive xmlns="uri:oozie:hive-action:0.2">
+      <job-tracker>${resourceManager}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <prepare>
+        <delete path="${outS1Dir}"/>
+      </prepare>
+      <job-xml>hive-site.xml</job-xml>
+	<configuration>
+		<property>
+			<name>mapred.job.queue.name</name>
+			<value>default</value>		
+		</property>
+	</configuration>
+      <script>s1Hive.sql</script>
+      <param>outS1=${outS1Dir}</param>
+    </hive>
+    <ok to="pigS2"/>
+    <error to="fail"/>
+</action>
+<action name="pigS2">
+    <pig>
+      <job-tracker>${resourceManager}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <prepare>
+        <delete path="${outS2Dir}"/>
+      </prepare>
+      <script>s2.pig</script>
+      <argument>-param</argument>
+      <argument>inS2=${inS2Dir}</argument>
+      <argument>-param</argument>
+      <argument>outS2=${outS2Dir}</argument>
+    </pig>
+    <ok to="end"/>
+    <error to="fail"/>
+  </action>
+  <kill name="fail">
+    <message>Pig failed, error message[${wf:errorMessage(wf:lastErrorNode())}]
+    </message>
+  </kill>
+  <end name="end"/>
+</workflow-app>
