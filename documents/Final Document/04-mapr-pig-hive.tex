@@ -1,18 +1,32 @@
-\subsection{Running MapReduce}
+En esta sección se presenta la comparación de los tiempos de ejecución de MapReduce, Apache Pig, y Apache Hive para el cálculo de la temperatura máxima registrada por año. 
 
+\subsection{Ejecución con MapReduce}
 
-%\begin{Verbatim}[commandchars=\\\{\}]
+\subsubsection{Preparación}
 
-%\textcolor{red}{export} HADOOP_CLASSPATH=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/hadoop-examples.jar
-
-%\textcolor{red}{hadoop} MaxTemperature /user/hive/warehouse/weather_external/full_data.txt out_mr_300GB
-%\end{Verbatim}
+Inicialmente, es necesario compilar el código fuente del programa \textit{MaxTemperature} en su versión Java. Para hacer esto, es necesario clonar el repositorio del libro \textit{Hadoop: The Definitive Guide}\footnote{Repositorio provisto por Tom White en https://github.com/tomwhite/hadoop-book}. Una vez hecho lo anterior, se debe proceder a compilar los archivos fuente necesarios mediante \textit{Maven}.Finalmente, la ruta del archivo .jar compilado deberá establecerse en una variable de entorno llamada \textit{HADOOP\_CLASSPATH}. 
 
 \begin{lstlisting}[linewidth=\columnwidth,breaklines=true]
-export HADOOP_CLASSPATH=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/hadoop-examples.jar
+//Clonación del repositorio.
+git clone &https://github.com/tomwhite/hadoop-book.git&
 
-hadoop MaxTemperature /user/hive/warehouse/weather_external/full_data.txt out_mr_300GB
+// Compilación del código fuente.
+mvn package &-&DskipTests
+
+// Definición del classpath de Hadoop.
+export HADOOP_CLASSPATH&=&/home/sas6/Oozie&-&Pig&-&HCatalog&-&Demos/assets/&hadoop-&examples&.&jar
 \end{lstlisting}
+
+
+\subsubsection{Ejecución del programa MaxTemperature}
+
+
+\begin{lstlisting}[linewidth=\columnwidth,breaklines=true]
+hadoop MaxTemperature /user/&hive&/warehouse/weather_external/full_data&.&txt out_mr_300GB
+\end{lstlisting}
+
+\subsubsection{Seguimiento a la ejecución del programa}
+
 
 \subsection{Running Pig}
 
