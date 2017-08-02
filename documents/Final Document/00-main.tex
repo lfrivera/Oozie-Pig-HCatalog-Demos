@@ -44,7 +44,7 @@
 %%*************************************************************************
 
 \documentclass[journal,onecolumn]{IEEEtran}
-\usepackage{blindtext, graphicx, listings, xcolor}
+\usepackage{blindtext, graphicx, listings, xcolor, float}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 
@@ -64,13 +64,14 @@
     keywordstyle=\color{eminence},
     stringstyle=\color{red},
     basicstyle=\small\ttfamily, % basic font setting
-    emph={git,mvn,export,hadoop,pig,hive,oozie},
+    emph={git,mvn,export,hadoop,pig,hive,oozie,LOAD,REGISTER,USING,AS,FILTER,BY,AND,
+    GROUP,FOREACH,GENERATE,MAX,STORE,INTO,INSERT,OVERWRITE,DYRECTORY,SELECT,FROM,WHERE,IN,ADD},
     emphstyle={\color{blue}},
     escapechar=\&,
     % keyword highlighting
     classoffset=1, % starting new class
-    otherkeywords={>,<,.,;,-,!,=,~},
-    morekeywords={>,<,.,;,-,!,=,~},
+    otherkeywords={>,<,;,!,=,~},
+    morekeywords={>,<,;,!,=,~},
     keywordstyle=\color{weborange},
     classoffset=0,
     extendedchars=true,
