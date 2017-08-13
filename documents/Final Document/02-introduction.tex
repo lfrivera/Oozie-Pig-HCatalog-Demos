@@ -1,1 +1,21 @@
-My introduction.
+\textit{Apache Hadoop} es un \textit{framework} de código abierto para el almacenamiento y procesamiento de grandes volúmenes de datos \footnote{https://hortonworks.com/apache/hadoop/}. Generalmente, Hadoop es considerado como un ecosistema, en el que habitan, entre otras, herramientas como \textit{Apache Hive}, \textit{Apache Pig}, y \textit{Apache Oozie}, las cuales fueron concebidas con el objetivo de complementar los cuatro elementos principales del core de Hadoop (HDFS, MapReduce, YARN, y Common)\footnote{http://www.bmc.com/guides/hadoop-ecosystem.html}. \\
+
+El objetivo principal de este proyecto consiste en analizar un subconjunto de las herramientas pertenecientes al ecosistema de Hadoop, desde la perspectiva de la infraestructura computacional necesaria ponerlas en marcha y de los principales atributos de calidad involucrados en el uso de las mismas. Para este propósito, un escenario de pruebas controlado fue configurado usando la versión 5.10.1 de \textit{Cloudera Manager} (CDH 5.10.1). Dicha configuración fue establecida como se muestra en la figura \ref{deployment_diagram}
+
+\begin{figure}[H]
+\label{deployment_diagram}
+  \centering
+      \includegraphics[width=\textwidth, height=2.5in]{fig/deployment}
+  \caption{Diagrama de despliegue de la configuración de CDH 5.10.1 en el laboratorio \textit{LIASON} de la Universidad Icesi.}
+\end{figure}
+
+Cada uno de los casos de estudio de minería de datos presente en este proyecto se basa en los datos provistos por el \textit{National Climatic Data Center} (NCDC). Dichos datos son recolectados por medio de sensores climáticos, los cuales recolectan información cada hora, de forma diaria, en distintas estaciones a lo largo del mundo. Dichos datos se encuentran registrados a través de lineas en archivos de texto. La figura \ref{dataset} muestra la descripción del conjunto de datos mencionado previamente. \\
+
+\begin{figure}[H]
+\label{dataset}
+  \centering
+      \includegraphics[width=\textwidth, height=3.5in]{fig/dataset}
+  \caption{Descripción del conjunto de datos. Tomado de \cite{White:2012:HDG:2285539}}
+\end{figure}
+
+El resto del presente documento se encuentra distribuido como se muestra a continuación. En la sección 1 se describen formalmente el objetivo general y los objetivos objetivos específicos del proyecto. En la sección 2 se presentan los tipos de pruebas ejecutadas sobre las herramientas \textit{MapReduce}, \textit{Apache Pig}, y \textit{Apache Hive} para entender la diferencia entre los tiempos de ejecución de las mismas. En la sección 3 se ilustran las distintas pruebas llevadas a cabo sobre las herramientas \textit{Apache Pig} y \textit{HCatalog} para verificar la posibilidad de extender las funcionalidades y capacidades provistas por \textit{Pig}. En la sección 4 se detallan las pruebas realizadas sobre \textit{Apache Ooozie}, las cuales buscan evidenciar la re-usabilidad y mantenibilidad de las aplicaciones desarrolladas sobre esta herramienta. La sección 5 muestra los resultados de la ejecución de las pruebas descritas previamente. En la sección 6 se presentan las conclusiones del presente trabajo. Finalmente, la sección 7 muestra las posibilidades de trabajo futuro que se podrían desarrollar a partir de lo que aquí se presenta.
