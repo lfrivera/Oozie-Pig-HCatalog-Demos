@@ -47,6 +47,7 @@
 \usepackage{blindtext, graphicx, listings, xcolor, float}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{hyperref}
 
 \definecolor{commentgreen}{RGB}{2,112,10}
 \definecolor{eminence}{RGB}{108,48,130}
@@ -65,7 +66,7 @@
     stringstyle=\color{red},
     basicstyle=\small\ttfamily, % basic font setting
     emph={git,mvn,export,hadoop,pig,hive,oozie,LOAD,REGISTER,USING,AS,FILTER,BY,AND,
-    GROUP,FOREACH,GENERATE,MAX,STORE,INTO,INSERT,OVERWRITE,DYRECTORY,SELECT,FROM,WHERE,IN,ADD},
+    GROUP,FOREACH,GENERATE,MAX,STORE,INTO,INSERT,OVERWRITE,DIRECTORY,SELECT,FROM,WHERE,IN,ADD,COUNT,DUMP,AVG,CREATE,TABLE,CAST,CONCAT, ROW, FORMAT,DELIMITED,FIELDS,TERMINATED},
     emphstyle={\color{blue}},
     escapechar=\&,
     % keyword highlighting
@@ -78,6 +79,8 @@
     literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 }
 
+
+
 % correct bad hyphenation here
 %\hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -86,7 +89,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{MapReduce, Pig, HCatalog and Oozie:\\ Una guía práctica}
+\title{Un Análisis a MapReduce, Pig, HCatalog y Oozie en términos de Atributos de Calidad}
 
 
 % author names and affiliations
@@ -134,9 +137,9 @@ Email: lfrivera@icesi.edu.co}
 \maketitle
 
 
-\begin{abstract}
-\input{01-abstract}
-\end{abstract}
+%\begin{abstract}
+%\input{01-abstract}
+%\end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
 % if the journal you are submitting to favors bold math in the abstract,
@@ -145,9 +148,9 @@ Email: lfrivera@icesi.edu.co}
 % in the abstract anyway.
 
 % Note that keywords are not normally used for peerreview papers.
-\begin{IEEEkeywords}
-map reduce, pig, hive, hcatalog, oozie.
-\end{IEEEkeywords}
+%\begin{IEEEkeywords}
+%map reduce, pig, hive, hcatalog, oozie.
+%\end{IEEEkeywords}
 
 
 
@@ -175,19 +178,19 @@ map reduce, pig, hive, hcatalog, oozie.
 \section{MapReduce, Pig y Hive}
 \input{04-mapr-pig-hive}
 
-\section{Pig and HCatalog}
+\section{Pig y HCatalog}
 \input{05-pig-hcatalog}
 
 \section{Oozie}
 \input{06-oozie}
 
-\section{Results}
+\section{Resultados}
 \input{07-results}
 
-\section{Conclusions}
+\section{Conclusiones}
 \input{08-conclusions}
 
-\section{Future work}
+\section{Trabajo futuro}
 \input{09-futurework}
 % references section
 

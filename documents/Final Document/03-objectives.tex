@@ -1,20 +1,25 @@
-El objetivo general del proyecto consiste en analizar, desde un punto de vista arquitectónico, algunas de las herramientas que conforman el ecosistema de Hadoop. Para esto, se estudiará MapReduce, Apache Pig, Apache Hive, HCatalog, y Apache Oozie desde la perspectiva de los atributos de calidad de desempeño (\textit{performance}), reusabilidad (\textit{reusability}), extensibilidad (\textit{extensibility}), y mantenibilidad (\textit{maintainability})). A continación se describen los objetivos específicos del proyecto y los atributos de calidad asociados a cada uno de estos. \\
+El objetivo general del proyecto consiste en analizar, en términos de atributos de calidad, algunas de las herramientas que conforman el ecosistema de Hadoop. Particularmente, en este proyecto se analizará MapReduce, Apache Pig, Apache Hive, HCatalog, y Apache Oozie desde la perspectiva de los atributos de calidad de desempeño (\textit{performance}), reusabilidad (\textit{reusability}), extensibilidad (\textit{extensibility}), y mantenibilidad (\textit{maintainability}). A continación se describen los objetivos específicos del proyecto y los atributos de calidad asociados a cada uno de estos. \\
 
 \begin{enumerate}
 
 \item
 {
-Construir y ejecutar un caso de estudio bajo un entorno de pruebas controlado, el cual permita, en una primera instancia, entender la diferencia en los tiempos de ejecución de MapReduce, ApachePig, y Apache Hive. Atributo de calidad relacionado: \textit{performance}.
+Evidenciar la diferencia en los tiempos de ejecución de MapReduce, Apache Pig y Apache Hive. Atributo de calidad relacionado: \textit{performance}.
 }
 
 \item
 {
-Construir y ejecutar un caso de estudio bajo un entorno de pruebas controlado, el cual permita, en una primera instancia, entender si Apache Pig podría aprovechar las ventajas de Apache Hive a través de HCatalog. Atributos de calidad relacionados: \textit{performance, extensibility}.
+Evidenciar la escalabilidad de Apache Pig. Atributo de calidad relacionado: \textit{scalability}.
 }
 
 \item
 {
-Construir y ejecutar un caso de estudio bajo un entorno de pruebas controlado, el cual permita, en una primera instancia, entender la posibilidad de re-uso y la facilidad de mantener \textit{workflows} en Apache Oozie. Atributos de calidad relacionados: \textit{reusability, maintainability}.
+Evidenciar la extensibilidad de Apache Pig mediante HCatalog y su impacto en el desempeño de las ejecuciones. Atributos de calidad relacionados: \textit{performance, extensibility}.
+}
+
+\item
+{
+Evidenciar la reusabilidad y mantenibilidad de los workflows definidos con Apache Oozie. Atributos de calidad relacionados: \textit{reusability, maintainability}.
 }
 
 \end{enumerate}

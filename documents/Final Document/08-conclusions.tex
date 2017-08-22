@@ -1,1 +1,18 @@
-Conclusions.
+Las pruebas realizadas en este proyecto indican en un principio que: \\
+
+\begin{itemize}
+
+\item Respecto al objetivo específico 1, en términos de tiempos de ejecución, Hive (con \textit{external tables}) ejecuta las actividades en un tiempo significativamente mayor que MapReduce y Pig.  Además, como era de esperarse, Pig realiza procesamientos en los datos en un tiempo mayor a MapReduce en su versión Java.
+
+\item Respecto al objetivo específico 1, Hue no parece adicionar un \textit{overhead} importante sobre las consultas realizadas en Hive, sin embargo, aunque leve, si hay un costo de realizar la planeación de las ejecuciones con Oozie cuando se ejecutan las consultas desde Hue.
+
+\item Respecto al objetivo específico 2, aparentemente, la escalabilidad de Pig no es del todo lineal sino logarítmica.
+
+\item Respecto al objetivo específico 3, Pig es un framework extensible que puede aprovechar las ventajas de Hive (\textit{metastore} y tablas particionadas) a través de HCatalog. Sin embargo, no parece haber compatibilidad con tablas externas de Hive.
+
+\item Respecto al objetivo específico 4, la reusabilidad y mantenibilidad de los workflows de Oozie se pudo comprobar a través del presente proyecto, pues fue relativamente sencillo actualizar el \textit{workflow} inicial para dar soporte a las nuevas necesidades (mejoras en el rendimiento a partir de las ventajas de Hive).
+
+\end{itemize}
+
+
+Es importante aclarar que las conclusiones listadas previamente son el reflejo de las ejecuciones de las distintas tecnologías del ecosistema de Hadoop que fueron tratadas en este proyecto. No deben ser consideradas como conclusiones definitivas, pues se necesitaría un mayor número de pruebas y estudio más completo de las distintas herramientas utilizadas para los fines de este proyecto.

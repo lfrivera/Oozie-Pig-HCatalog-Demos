@@ -1,4 +1,9 @@
-En esta sección se presenta la comparación de los tiempos de ejecución de MapReduce, Apache Pig, y Apache Hive para el cálculo de la temperatura máxima registrada por año. 
+En esta sección se presentan las ejecuciones realizadas con MapReduce, Apache Pig, y Apache Hive para el cálculo de la temperatura máxima registrada por año para el objetivo específico 1 del presente proyecto.
+
+\subsection{Problema tratado}
+
+Determinar la temperatura máxima registrada por año para los datos consignados en el dataset del NCDC.
+
 
 \subsection{Ejecución con MapReduce}
 
@@ -91,7 +96,7 @@ A continuación se detallan los pasos necesarios para ejecutar el programa \text
 
 \subsubsection{Definición del script en PigLatin}
 
-El siguiente script contiene el código utilizado utilizado para ejecutar el programa \textit{MaxTemperature} en su versión PigLating. En las dos primeras lineas del script se detalla el uso de una UDF (\textit{User defined function}), provista por Tom White, para la lectura de registros a partir de la definición de rangos de lectura para sus atributos. El contenido del script fue guardado en un archivo llamado \textit{max-temp.pig}.
+El siguiente script contiene el código utilizado utilizado para ejecutar el programa \textit{MaxTemperature} en su versión PigLatin. En las dos primeras lineas del script se detalla el uso de una UDF (\textit{User defined function}), provista por Tom White, para la lectura de registros a partir de la definición de rangos de lectura para sus atributos. El contenido del script fue guardado en un archivo llamado \textit{max-temp.pig}.
 
 \begin{lstlisting}[linewidth=\columnwidth,breaklines=true]
 REGISTER $load_loc;
@@ -146,3 +151,67 @@ El monitoreo de la ejecución del programa podrá realizarse a través de Grunt,
   \caption{Ejecución finalizada, vista desde el Job History Server.}
 \end{figure}
 
+\section{Escalabilidad de Pig}
+
+A continuación se detallan los pasos necesarios para ejecutar el programa \textit{AverageTemperatureCount} con Apache Pig para el objetivo específico 2 del presente proyecto \\
+
+\subsection{Problema tratado}
+
+Determinar la temperatura promedio registrada por año y el número de estaciones meteorológicas utilizadas para su cálculo, teniendo como base los datos consignados en el dataset del NCDC.
+
+\subsection{Definición del script en PigLatin}
+
+El siguiente script contiene el código utilizado utilizado para ejecutar el programa \textit{AverageTemperatureCount} en su versión PigLatin. En las dos primeras lineas del script se detalla el uso de una UDF (\textit{User defined function}), provista por Tom White, para la lectura de registros a partir de la definición de rangos de lectura para sus atributos. El contenido del script fue guardado en un archivo llamado \textit{avg-count-temp-scalability.pig}.
+
+\begin{lstlisting}[linewidth=\columnwidth,breaklines=true]
+REGISTER $load_loc; 
+records = LOAD '$in_s1' USING com.hadoopbook.&pig&.CutLoadFunc('16-19,88-92,93-93') AS (year:int, temperature:int, quality:int);
+filtered_records = FILTER records BY temperature != 9999 AND com.hadoopbook.&pig&.IsGoodQuality(quality); 
+grouped_records = GROUP filtered_records BY year; 
+mean_count_temp = FOREACH grouped_records GENERATE group,AVG(filtered_records.temperature),COUNT(filtered_records); 
+STORE mean_count_temp INTO '$out_max'; 
+\end{lstlisting} 
+
+
+\subsection{Definición de los parámetros del script}
+
+Una vez definido el script en PigLatin, se procede a definir en un nuevo archivo los parámetros necesarios para la correcta ejecución del script. Los parámetros mencionados fueron guardados en un archivo llamado \textit{avg-count-temp-scalability.param}.
+
+\begin{lstlisting}[linewidth=\columnwidth,breaklines=true]
+# Load function location.
+load_loc=/home/sas6/Oozie-Pig-HCatalog-Demos/assets/&pig&-examples.jar
+# Input.
+in_s1=/user/&hive&/warehouse/weather_external/full_data.txt
+# Output.
+out_max=out_scalabity_pig
+\end{lstlisting}
+
+\subsection{Ejecución con Grunt en modo \textit{batch}}
+
+A continuación se detalla el comando utilizado para ejecutar el programa \textit{AverageTemperatureCount} mediante el modo \textit{batch} de Grunt.
+
+\begin{lstlisting}[linewidth=\columnwidth,breaklines=true]
+pig -param_file /home/sas6/Oozie-Pig-HCatalog-Demos/scripts/&pig&/300GB/avg-count-scalabity.param /home/sas6/Oozie-Pig-HCatalog-Demos/src/&pig&/avg-count-temp-scalability.&pig&
+\end{lstlisting}
+
+\subsection{Seguimiento a la ejecución del programa}
+
+El monitoreo de la ejecución del programa podrá realizarse a través de Grunt, por medio de la interfaz gráfica de YARN, o por la información proporcionada por el Job History Server.
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[width=\textwidth, height=2.0in]{fig/03/01}
+  \caption{Monitoreo de la ejecución del programa \textit{AverageTemperatureCount} en Pig por medio de la consola Grunt desde donde se ejecutó.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[width=\textwidth, height=0.8in]{fig/03/02}
+  \caption{Monitoreo de la ejecución del programa \textit{AverageTemperatureCount} en Pig por medio de la interfaz de YARN.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[width=\textwidth, height=2.7in]{fig/03/03}
+  \caption{Ejecución finalizada, vista desde el Job History Server.}
+\end{figure}
